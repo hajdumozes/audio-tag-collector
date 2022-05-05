@@ -65,6 +65,17 @@
 				<configuration>
 					<mainClass>com.mozeshajdu.audiotagcollector.HelloFx</mainClass>
 				</configuration>
+				<executions>
+					<execution>
+						<id>debug</id>
+						<configuration>
+							<mainClass>com.mozeshajdu.audiotagcollector.HelloFx</mainClass>
+							<options>
+								<option>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:8000</option>
+							</options>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
