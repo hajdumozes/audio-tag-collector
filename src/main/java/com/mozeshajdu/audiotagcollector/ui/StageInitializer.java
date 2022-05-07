@@ -37,11 +37,9 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
         Stage stage = event.getStage();
         FileChooser fileChooser = new FileChooser();
         configureFileChooser(fileChooser);
-        File file = fileChooser.showOpenDialog(stage);
-        AudioFile audioFile = readAudioFile(file);
-        Tag tag = audioFile.getTag();
-        AudioTag audioTag = audioTagExtractor.extract(tag);
-        kafkaProducer.produce(audioTag.getTitle());
+        List<File> files = fileChooser.showOpenMultipleDialog(stage);
+        List<AudioTag> audioTags = files.stream().map(this::toAudioTag).collect(Collectors.toList());
+        audioTags.forEach(audioTag -> kafkaProducer.produce(audioTag.getTitle()));
     }
 
     private void configureFileChooser(FileChooser fileChooser) {
@@ -62,5 +60,11 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
         } catch (Exception e) {
             throw new AudioReadException(e.getMessage());
         }
+    }
+
+    private AudioTag toAudioTag(File file) {
+        AudioFile audioFile = readAudioFile(file);
+        Tag tag = audioFile.getTag();
+        return audioTagExtractor.extract(tag);
     }
 }
