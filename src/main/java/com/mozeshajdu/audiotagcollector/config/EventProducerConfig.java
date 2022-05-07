@@ -9,7 +9,7 @@ import reactor.core.publisher.Sinks;
 import java.util.function.Supplier;
 
 @Configuration
-public class KafkaProducerConfig {
+public class EventProducerConfig {
 
     @Bean
     public Sinks.Many<AudioTag> audioTagSink() {
