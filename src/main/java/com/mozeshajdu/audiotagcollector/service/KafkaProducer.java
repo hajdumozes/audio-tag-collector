@@ -1,5 +1,6 @@
 package com.mozeshajdu.audiotagcollector.service;
 
+import com.mozeshajdu.audiotagcollector.entity.AudioTag;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -12,9 +13,9 @@ import reactor.core.publisher.Sinks;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Slf4j
 public class KafkaProducer {
-    Sinks.Many<String> audioTagSink;
+    Sinks.Many<AudioTag> audioTagSink;
 
-    public void produce(String audioTag) {
+    public void produce(AudioTag audioTag) {
         audioTagSink.tryEmitNext(audioTag);
     }
 }

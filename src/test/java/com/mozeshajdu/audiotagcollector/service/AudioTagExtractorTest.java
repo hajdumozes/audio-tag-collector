@@ -1,5 +1,6 @@
 package com.mozeshajdu.audiotagcollector.service;
 
+import com.mozeshajdu.audiotagcollector.entity.AudioTag;
 import com.mozeshajdu.audiotagcollector.entity.TagFieldSelection;
 import com.mozeshajdu.audiotagcollector.mapper.AudioTagMapper;
 import lombok.SneakyThrows;

@@ -39,7 +39,7 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
         configureFileChooser(fileChooser);
         List<File> files = fileChooser.showOpenMultipleDialog(stage);
         List<AudioTag> audioTags = files.stream().map(this::toAudioTag).collect(Collectors.toList());
-        audioTags.forEach(audioTag -> kafkaProducer.produce(audioTag.getTitle()));
+        audioTags.forEach(kafkaProducer::produce);
     }
 
     private void configureFileChooser(FileChooser fileChooser) {
