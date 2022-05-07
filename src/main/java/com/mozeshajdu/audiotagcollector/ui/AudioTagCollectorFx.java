@@ -17,7 +17,6 @@ public class AudioTagCollectorFx extends Application {
     @Override
     public void start(Stage stage) {
         applicationContext.publishEvent(new StageReadyEvent(stage));
-
     }
 
     @Override

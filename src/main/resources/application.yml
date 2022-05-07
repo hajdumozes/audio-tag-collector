@@ -1,3 +1,16 @@
 spring:
   main:
     web-application-type: none
+  cloud.stream:
+    function:
+      definition: produceAudioTags;consumeAudioTags
+      bindings:
+        produceAudioTags-out-0: audio-tag
+        consumeAudioTags-in-0: audio-tag
+    bindings:
+      audio-tag:
+        destination: ${KAFKA_AUDIO_TAG_TOPIC}
+    default-binder: kafka
+    kafka:
+      binder:
+        brokers: ${KAFKA_SERVER}

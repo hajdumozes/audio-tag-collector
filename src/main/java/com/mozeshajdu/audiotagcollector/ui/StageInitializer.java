@@ -4,6 +4,7 @@ import com.mozeshajdu.audiotagcollector.entity.AudioExtension;
 import com.mozeshajdu.audiotagcollector.entity.AudioTag;
 import com.mozeshajdu.audiotagcollector.exception.AudioReadException;
 import com.mozeshajdu.audiotagcollector.service.AudioTagExtractor;
+import com.mozeshajdu.audiotagcollector.service.KafkaProducer;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import lombok.AccessLevel;
@@ -29,7 +30,7 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
     public static final String EXTENSION_FILTER_NAME = "Audio files";
 
     AudioTagExtractor audioTagExtractor;
-
+    KafkaProducer kafkaProducer;
 
     @Override
     public void onApplicationEvent(StageReadyEvent event) {
@@ -40,6 +41,7 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
         AudioFile audioFile = readAudioFile(file);
         Tag tag = audioFile.getTag();
         AudioTag audioTag = audioTagExtractor.extract(tag);
+        kafkaProducer.produce(audioTag.getTitle());
     }
 
     private void configureFileChooser(FileChooser fileChooser) {
