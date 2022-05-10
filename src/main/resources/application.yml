@@ -13,3 +13,6 @@ spring:
     kafka:
       binder:
         brokers: ${KAFKA_SERVER}
+tag:
+  delimiter:
+    genre: ${GENRE_DELIMITER}

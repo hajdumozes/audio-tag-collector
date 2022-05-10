@@ -5,7 +5,7 @@ import com.mozeshajdu.audiotagcollector.entity.TagFieldSelection;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring", uses = TagFieldMapper.class)
+@Mapper(componentModel = "spring", uses = {TagFieldMapper.class, GenreMapper.class})
 public interface AudioTagMapper {
 
     @Mapping(target = "title", qualifiedByName = "single")
@@ -15,7 +15,7 @@ public interface AudioTagMapper {
     @Mapping(target = "year", qualifiedByName = "single")
     @Mapping(target = "track", qualifiedByName = "single")
     @Mapping(target = "composer", qualifiedByName = "single")
-    @Mapping(target = "genres", qualifiedByName = "multiple")
+    @Mapping(target = "genres", qualifiedByName = "split")
     @Mapping(target = "grouping", qualifiedByName = "single")
     AudioTag of(TagFieldSelection source);
 }
