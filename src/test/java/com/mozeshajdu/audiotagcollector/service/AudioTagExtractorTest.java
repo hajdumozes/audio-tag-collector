@@ -60,7 +60,7 @@ class AudioTagExtractorTest {
         mp4Tag.addField(FieldKey.TRACK, TAG_TRACK);
         mp4Tag.addField(FieldKey.COMPOSER, Strings.EMPTY);
         mp4Tag.addField(FieldKey.GENRE, TAG_GENRE);
-        TagField groupingField = new Mp4TagTextField(FIELD_KEY_CONTENT_GROUP, TAG_GROUPING);
+        TagField groupingField = new Mp4TagTextField(FIELD_KEY_CONTENT_GROUP.get(0), TAG_GROUPING);
         mp4Tag.addField(groupingField);
         return mp4Tag;
     }
@@ -75,7 +75,7 @@ class AudioTagExtractorTest {
                 .track(tag.getFields(FieldKey.TRACK))
                 .composer(tag.getFields(FieldKey.COMPOSER))
                 .genres(tag.getFields(FieldKey.GENRE))
-                .grouping(tag.getFields(FIELD_KEY_CONTENT_GROUP))
+                .grouping(tag.getFields(FIELD_KEY_CONTENT_GROUP.get(0)))
                 .build();
     }
 }

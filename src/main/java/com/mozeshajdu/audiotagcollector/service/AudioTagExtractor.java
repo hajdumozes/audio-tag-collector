@@ -8,13 +8,18 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.Tag;
+import org.jaudiotagger.tag.TagField;
 import org.springframework.stereotype.Component;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class AudioTagExtractor {
-    public static final String FIELD_KEY_CONTENT_GROUP = "CONTENTGROUP";
+    public static final List<String> FIELD_KEY_CONTENT_GROUP = List.of("CONTENTGROUP", "TIT1", "©grp");
 
     AudioTagMapper audioTagMapper;
 
@@ -28,8 +33,15 @@ public class AudioTagExtractor {
                 .track(tag.getFields(FieldKey.TRACK))
                 .composer(tag.getFields(FieldKey.COMPOSER))
                 .genres(tag.getFields(FieldKey.GENRE))
-                .grouping(tag.getFields(FIELD_KEY_CONTENT_GROUP))
+                .grouping(getGrouping(tag))
                 .build();
         return audioTagMapper.of(tagFieldSelection);
+    }
+
+    private List<TagField> getGrouping(Tag tag) {
+        return FIELD_KEY_CONTENT_GROUP.stream()
+                .map(tag::getFields)
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
     }
 }
