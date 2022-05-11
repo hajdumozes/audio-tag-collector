@@ -1,6 +1,7 @@
 package com.mozeshajdu.audiotagcollector.mapper;
 
 import com.mozeshajdu.audiotagcollector.config.TagDelimiterProperties;
+import com.mozeshajdu.audiotagcollector.service.TagFormatter;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -18,15 +19,18 @@ import java.util.stream.Collectors;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class GenreMapper {
     TagDelimiterProperties tagDelimiterProperties;
+    TagFormatter tagFormatter;
 
     @Named("split")
     public List<String> of(List<TagField> genreStrings) {
-        return genreStrings.stream().map(this::split)
+        return genreStrings.stream()
+                .map(tagFormatter::transformTextTags)
+                .map(this::split)
                 .flatMap(Collection::stream)
                 .collect(Collectors.toList());
     }
 
-    private List<String> split(TagField genreString) {
-        return Arrays.stream(genreString.toString().split(tagDelimiterProperties.getGenre())).map(String::trim).collect(Collectors.toList());
+    private List<String> split(String genreString) {
+        return Arrays.stream(genreString.split(tagDelimiterProperties.getGenre())).map(String::trim).collect(Collectors.toList());
     }
 }
