@@ -14,8 +14,8 @@ public interface AudioTagMapper {
     @Mapping(target = "album", qualifiedByName = "single")
     @Mapping(target = "year", qualifiedByName = "single")
     @Mapping(target = "track", qualifiedByName = "single")
-    @Mapping(target = "composer", qualifiedByName = "single")
     @Mapping(target = "genres", qualifiedByName = "split")
     @Mapping(target = "grouping", qualifiedByName = "single")
+    @Mapping(target = "rating", qualifiedByName = "single")
     AudioTag of(TagFieldSelection source);
 }

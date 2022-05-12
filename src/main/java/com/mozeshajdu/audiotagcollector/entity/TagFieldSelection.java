@@ -18,7 +18,7 @@ public class TagFieldSelection {
     List<TagField> album;
     List<TagField> year;
     List<TagField> track;
-    List<TagField> composer;
     List<TagField> genres;
     List<TagField> grouping;
+    List<TagField> rating;
 }

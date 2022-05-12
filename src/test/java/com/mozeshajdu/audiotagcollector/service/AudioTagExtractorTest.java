@@ -1,10 +1,8 @@
 package com.mozeshajdu.audiotagcollector.service;
 
-import com.mozeshajdu.audiotagcollector.entity.AudioTag;
 import com.mozeshajdu.audiotagcollector.entity.TagFieldSelection;
 import com.mozeshajdu.audiotagcollector.mapper.AudioTagMapper;
 import lombok.SneakyThrows;
-import org.apache.logging.log4j.util.Strings;
 import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.Tag;
 import org.jaudiotagger.tag.TagField;
@@ -30,6 +28,7 @@ class AudioTagExtractorTest {
     public static final String TAG_TRACK = "9";
     public static final String TAG_GENRE = "Game Score";
     public static final String TAG_GROUPING = "Mild - vivid, #tranquility";
+    public static final String TRACK_RATING = "70";
     @InjectMocks
     AudioTagExtractor underTest;
 
@@ -58,7 +57,7 @@ class AudioTagExtractorTest {
         mp4Tag.addField(FieldKey.ALBUM, TAG_ALBUM);
         mp4Tag.addField(FieldKey.YEAR, TAG_YEAR);
         mp4Tag.addField(FieldKey.TRACK, TAG_TRACK);
-        mp4Tag.addField(FieldKey.COMPOSER, Strings.EMPTY);
+        mp4Tag.addField(FieldKey.RATING, TRACK_RATING);
         mp4Tag.addField(FieldKey.GENRE, TAG_GENRE);
         TagField groupingField = new Mp4TagTextField(FIELD_KEY_CONTENT_GROUP.get(0), TAG_GROUPING);
         mp4Tag.addField(groupingField);
@@ -73,7 +72,7 @@ class AudioTagExtractorTest {
                 .album(tag.getFields(FieldKey.ALBUM))
                 .year(tag.getFields(FieldKey.YEAR))
                 .track(tag.getFields(FieldKey.TRACK))
-                .composer(tag.getFields(FieldKey.COMPOSER))
+                .rating(tag.getFields(FieldKey.RATING))
                 .genres(tag.getFields(FieldKey.GENRE))
                 .grouping(tag.getFields(FIELD_KEY_CONTENT_GROUP.get(0)))
                 .build();

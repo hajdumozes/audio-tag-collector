@@ -21,8 +21,8 @@ public class AudioTag {
     String album;
     String year;
     String track;
-    String composer;
     List<String> genres;
     String grouping;
+    String rating;
 }
 

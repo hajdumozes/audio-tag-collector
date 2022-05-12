@@ -31,9 +31,9 @@ public class AudioTagExtractor {
                 .album(tag.getFields(FieldKey.ALBUM))
                 .year(tag.getFields(FieldKey.YEAR))
                 .track(tag.getFields(FieldKey.TRACK))
-                .composer(tag.getFields(FieldKey.COMPOSER))
                 .genres(tag.getFields(FieldKey.GENRE))
                 .grouping(getGrouping(tag))
+                .rating(tag.getFields(FieldKey.RATING))
                 .build();
         return audioTagMapper.of(tagFieldSelection);
     }
