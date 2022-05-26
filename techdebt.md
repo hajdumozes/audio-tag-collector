@@ -1,0 +1,2 @@
+- support drag & drop
+- implement directory chooser
