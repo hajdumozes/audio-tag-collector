@@ -1,2 +1,3 @@
 - support drag & drop
 - implement directory chooser
+- filter out previews

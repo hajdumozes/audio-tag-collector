@@ -23,6 +23,6 @@ public class AudioTag {
     String track;
     List<String> genres;
     String grouping;
-    String rating;
+    Integer rating;
 }
 
