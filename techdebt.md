@@ -1,3 +1,2 @@
-- support drag & drop
-- implement directory chooser
 - filter out previews
+- java fx spring boot exmaples: https://github.com/sialcasa/mvvmFX/blob/develop/examples/mini-examples/helloworld-spring-boot/src/main/java/de/saxsys/mvvmfx/examples/helloworld/view/HelloView.java
