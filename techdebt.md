@@ -1,2 +1,4 @@
 - filter out previews
+- visual result shown, eg.: how many audio files were consumed
+- application icon
 - java fx spring boot exmaples: https://github.com/sialcasa/mvvmFX/blob/develop/examples/mini-examples/helloworld-spring-boot/src/main/java/de/saxsys/mvvmfx/examples/helloworld/view/HelloView.java
