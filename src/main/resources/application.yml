@@ -8,7 +8,7 @@ spring:
         produceAudioTags-out-0: audio-tag
     bindings:
       audio-tag:
-        destination: ${KAFKA_AUDIO_TAG_TOPIC:audio-tag}
+        destination: ${KAFKA_AUDIO_TAG_TOPIC:audio-tag-created}
     default-binder: kafka
     kafka:
       binder:

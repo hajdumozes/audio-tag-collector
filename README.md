@@ -14,6 +14,6 @@ JavaFX desktop application, which browses audio files, and collects their tags. 
 
 | Name                                      | Format   | Default value                                      | Comment                                                    |
 |-------------------------------------------|----------|----------------------------------------------------|------------------------------------------------------------|
-| `KAFKA_AUDIO_TAG_TOPIC`                   | string   | audio-tag                                          |  |
+| `KAFKA_AUDIO_TAG_TOPIC`                   | string   | audio-tag-created                                  |  |
 | `KAFKA_SERVER`                            | string   | localhost:9093                                     |  |
 | `GENRE_DELIMITER`                         | string   | ;                                                  | Given multiple genres in tags, the separator between them  |
