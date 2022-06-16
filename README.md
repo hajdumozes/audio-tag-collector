@@ -9,6 +9,7 @@ JavaFX desktop application, which browses audio files, and collects their tags. 
 - Java fx sdk is needed for IntelliJ
 - add VM option:
 --module-path "path-to-javafx-jdk-lib" --add-modules=javafx.controls,javafx.fxml
+- for yml support also add to VM option: -Dspring.config.location=src/main/resources/application.yml
 
 ### Environment variables
 
