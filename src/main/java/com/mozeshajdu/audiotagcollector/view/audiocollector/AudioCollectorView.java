@@ -1,5 +1,6 @@
 package com.mozeshajdu.audiotagcollector.view.audiocollector;
 
+import com.mozeshajdu.audiotagcollector.entity.AudioExtension;
 import com.mozeshajdu.audiotagcollector.service.AudioFileReader;
 import de.saxsys.mvvmfx.FxmlView;
 import javafx.fxml.FXML;
@@ -11,7 +12,14 @@ import javafx.scene.layout.Pane;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.stereotype.Component;
+
+import java.io.File;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -40,8 +48,25 @@ public class AudioCollectorView implements FxmlView<AudioCollectorViewModel> {
         Dragboard dragboard = event.getDragboard();
         if (dragboard.hasFiles()) {
             audioCollectorViewModel.resetProcessed();
-            audioCollectorViewModel.setGoal(dragboard.getFiles().size());
-            dragboard.getFiles().forEach(audioFileReader::read);
+            List<File> audioFiles = dragboard.getFiles().stream().filter(this::isAudioFile).collect(Collectors.toList());
+            audioCollectorViewModel.setGoal(audioFiles.size());
+            audioFiles.forEach(audioFileReader::read);
         }
+    }
+
+    private List<String> getAllAudioExtensionPattern() {
+        AudioExtension[] values = AudioExtension.values();
+        return Arrays.stream(values).map(AudioExtension::getExtension).collect(Collectors.toList());
+    }
+
+    private boolean isAudioFile(File file) {
+        String fileExtension = getFileExtension(file.getName()).orElse(Strings.EMPTY);
+        return getAllAudioExtensionPattern().contains(fileExtension);
+    }
+
+    private Optional<String> getFileExtension(String filename) {
+        return Optional.ofNullable(filename)
+                .filter(name -> name.contains("."))
+                .map(name -> name.substring(filename.lastIndexOf(".")));
     }
 }
