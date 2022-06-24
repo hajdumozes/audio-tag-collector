@@ -5,10 +5,13 @@ spring:
     function:
       definition: produceAudioTagCreated;consumeAudioTagProcessed
       bindings:
-        produceAudioTags-out-0: audio-tag
+        produceAudioTagCreated-out-0: audio-tag-created
+        consumeAudioTagProcessed-in-0: audio-tag-processed
     bindings:
-      audio-tag:
+      audio-tag-created:
         destination: ${KAFKA_AUDIO_TAG_CREATED_TOPIC:audio-tag-created}
+      audio-tag-processed:
+        destination: ${KAFKA_AUDIO_TAG_PROCESSED_TOPIC:audio-tag-processed}
     default-binder: kafka
     kafka:
       binder:

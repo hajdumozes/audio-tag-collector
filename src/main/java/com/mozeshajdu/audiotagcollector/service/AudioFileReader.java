@@ -2,7 +2,7 @@ package com.mozeshajdu.audiotagcollector.service;
 
 import com.mozeshajdu.audiotagcollector.entity.AudioExtension;
 import com.mozeshajdu.audiotagcollector.entity.AudioTag;
-import com.mozeshajdu.audiotagcollector.event.AudioTagProducer;
+import com.mozeshajdu.audiotagcollector.event.producer.AudioTagProducer;
 import com.mozeshajdu.audiotagcollector.exception.AudioReadException;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

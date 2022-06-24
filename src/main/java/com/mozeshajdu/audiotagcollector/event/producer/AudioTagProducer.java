@@ -1,4 +1,4 @@
-package com.mozeshajdu.audiotagcollector.event;
+package com.mozeshajdu.audiotagcollector.event.producer;
 
 import com.mozeshajdu.audiotagcollector.entity.AudioTag;
 import lombok.AccessLevel;
@@ -11,9 +11,9 @@ import reactor.core.publisher.Sinks;
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class AudioTagProducer {
-    Sinks.Many<AudioTag> audioTagSink;
+    Sinks.Many<AudioTag> audioTagMany;
 
     public void produce(AudioTag audioTag) {
-        audioTagSink.tryEmitNext(audioTag);
+        audioTagMany.tryEmitNext(audioTag);
     }
 }

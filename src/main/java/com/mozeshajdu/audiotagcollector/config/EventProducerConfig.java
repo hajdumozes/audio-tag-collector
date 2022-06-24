@@ -17,7 +17,7 @@ public class EventProducerConfig {
     }
 
     @Bean
-    Supplier<Flux<AudioTag>> produceAudioTags(Sinks.Many<AudioTag> audioTagSink) {
-        return audioTagSink::asFlux;
+    Supplier<Flux<AudioTag>> produceAudioTagCreated(Sinks.Many<AudioTag> audioTagMany) {
+        return audioTagMany::asFlux;
     }
 }
