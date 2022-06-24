@@ -7,3 +7,4 @@
 
 ### Tag processing
 - filter out previews
+- figure out text-based values for RatingMapper

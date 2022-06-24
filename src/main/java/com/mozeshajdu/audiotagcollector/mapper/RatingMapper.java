@@ -32,10 +32,15 @@ public class RatingMapper {
     TagFormatter tagFormatter;
 
     @Named("reevaluate")
-    public String of(List<TagField> ratingStrings) {
-        TagField ratingField = ratingStrings.get(0);
-        String formattedField = tagFormatter.transformTextTags(ratingField);
-        return formattedField.contains(RATING_PART_PREFIX) ? transform(formattedField) : formattedField;
+    public Integer of(List<TagField> ratingStrings) {
+        if (ratingStrings.size() > 0) {
+            TagField ratingField = ratingStrings.get(0);
+            String formattedField = tagFormatter.transformTextTags(ratingField);
+            String transformedField = formattedField.contains(RATING_PART_PREFIX) ? transform(formattedField) : formattedField;
+            return Integer.parseInt(transformedField);
+        } else {
+            return null;
+        }
     }
 
     private String transform(String rating) {

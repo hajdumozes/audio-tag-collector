@@ -32,10 +32,10 @@ class RatingMapperTest {
         Mockito.when(tagFormatter.transformTextTags(ratingField)).thenReturn(content);
 
         // when
-        String result = underTest.of(List.of(ratingField));
+        Integer result = underTest.of(List.of(ratingField));
 
         // then
-        assertThat(result).isEqualTo("70");
+        assertThat(result).isEqualTo(70);
     }
 
     @Test
@@ -47,9 +47,9 @@ class RatingMapperTest {
         Mockito.when(tagFormatter.transformTextTags(ratingField)).thenReturn(content);
 
         // when
-        String result = underTest.of(List.of(ratingField));
+        Integer result = underTest.of(List.of(ratingField));
 
         // then
-        assertThat(result).isEqualTo("70");
+        assertThat(result).isEqualTo(70);
     }
 }
