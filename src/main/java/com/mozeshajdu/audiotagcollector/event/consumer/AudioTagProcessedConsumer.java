@@ -1,6 +1,7 @@
 package com.mozeshajdu.audiotagcollector.event.consumer;
 
 import com.mozeshajdu.audiotagcollector.event.entity.AudioTagProcessedMessage;
+import com.mozeshajdu.audiotagcollector.view.audiocollector.AudioCollectorViewModel;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -16,9 +17,11 @@ import java.util.function.Consumer;
 @RequiredArgsConstructor
 @Slf4j
 public class AudioTagProcessedConsumer implements Consumer<AudioTagProcessedMessage> {
+    AudioCollectorViewModel audioCollectorViewModel;
 
     @Override
     public void accept(AudioTagProcessedMessage audioTagProcessedMessage) {
         log.info("Received audioTagProcessedMessage: {}", audioTagProcessedMessage.toString());
+        audioCollectorViewModel.increaseProcessed();
     }
 }
