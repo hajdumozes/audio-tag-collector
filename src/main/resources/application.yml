@@ -3,16 +3,16 @@ spring:
     web-application-type: none
   cloud.stream:
     function:
-      definition: produceAudioTags
+      definition: produceAudioTagCreated;consumeAudioTagProcessed
       bindings:
         produceAudioTags-out-0: audio-tag
     bindings:
       audio-tag:
-        destination: ${KAFKA_AUDIO_TAG_TOPIC:audio-tag-created}
+        destination: ${KAFKA_AUDIO_TAG_CREATED_TOPIC:audio-tag-created}
     default-binder: kafka
     kafka:
       binder:
-        brokers: ${KAFKA_SERVER:localhost:9093}
+        brokers: ${KAFKA_SERVER:localhost:9092}
 tag:
   delimiter:
     genre: ${GENRE_DELIMITER:;}
