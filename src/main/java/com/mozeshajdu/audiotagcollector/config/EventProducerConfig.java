@@ -1,6 +1,7 @@
 package com.mozeshajdu.audiotagcollector.config;
 
 import com.mozeshajdu.audiotagcollector.entity.AudioTag;
+import com.mozeshajdu.audiotagcollector.event.entity.AudioTagCreatedMessage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import reactor.core.publisher.Flux;
@@ -12,12 +13,12 @@ import java.util.function.Supplier;
 public class EventProducerConfig {
 
     @Bean
-    public Sinks.Many<AudioTag> audioTagSink() {
+    public Sinks.Many<AudioTagCreatedMessage> audioTagCreatedMessageMany() {
         return Sinks.many().unicast().onBackpressureBuffer();
     }
 
     @Bean
-    Supplier<Flux<AudioTag>> produceAudioTagCreated(Sinks.Many<AudioTag> audioTagMany) {
-        return audioTagMany::asFlux;
+    Supplier<Flux<AudioTagCreatedMessage>> produceAudioTagCreated(Sinks.Many<AudioTagCreatedMessage> audioTagCreatedMessageMany) {
+        return audioTagCreatedMessageMany::asFlux;
     }
 }

@@ -2,6 +2,7 @@ package com.mozeshajdu.audiotagcollector.mapper;
 
 import com.mozeshajdu.audiotagcollector.entity.AudioTag;
 import com.mozeshajdu.audiotagcollector.entity.TagFieldSelection;
+import com.mozeshajdu.audiotagcollector.event.entity.AudioTagCreatedMessage;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -18,4 +19,6 @@ public interface AudioTagMapper {
     @Mapping(target = "grouping", qualifiedByName = "single")
     @Mapping(target = "rating", qualifiedByName = "reevaluate")
     AudioTag of(TagFieldSelection source);
+
+    AudioTagCreatedMessage of(AudioTag source);
 }
