@@ -3,15 +3,18 @@ spring:
     web-application-type: none
   cloud.stream:
     function:
-      definition: produceAudioTagCreated;consumeAudioTagProcessed
+      definition: produceAudioTagCreated;consumeAudioTagProcessed;consumeAudioTagAdded
       bindings:
         produceAudioTagCreated-out-0: audio-tag-created
         consumeAudioTagProcessed-in-0: audio-tag-processed
+        consumeAudioTagAdded-in-0: audio-tag-added
     bindings:
       audio-tag-created:
         destination: ${KAFKA_AUDIO_TAG_CREATED_TOPIC:audio-tag-created}
       audio-tag-processed:
         destination: ${KAFKA_AUDIO_TAG_PROCESSED_TOPIC:audio-tag-processed}
+      audio-tag-added:
+        destination: ${KAFKA_AUDIO_TAG_ADDED_TOPIC:audio-tag-added}
     default-binder: kafka
     kafka:
       binder:

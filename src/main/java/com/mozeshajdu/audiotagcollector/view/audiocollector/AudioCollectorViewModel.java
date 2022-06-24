@@ -12,21 +12,32 @@ import org.springframework.stereotype.Component;
 @Component
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class AudioCollectorViewModel implements ViewModel {
-    int counter;
+    int processedCounter;
+    int addedCounter;
     @Setter
     int goal;
     final ReadOnlyStringWrapper processedLabelMessage = new ReadOnlyStringWrapper();
+    final ReadOnlyStringWrapper addedLabelMessage = new ReadOnlyStringWrapper();
 
     public void resetProcessed() {
-        counter = 0;
+        processedCounter = 0;
     }
 
     public void increaseProcessed() {
-        counter++;
-        Platform.runLater(() -> processedLabelMessage.set(String.format("Processed tags: %d/%d", counter, goal)));
+        processedCounter++;
+        Platform.runLater(() -> processedLabelMessage.set(String.format("Processed tags: %d/%d", processedCounter, goal)));
+    }
+
+    public void increaseAdded() {
+        addedCounter++;
+        Platform.runLater(() -> addedLabelMessage.set(String.format("New tags: %d", addedCounter)));
     }
 
     public ReadOnlyStringProperty getProcessedLabelMessage() {
         return processedLabelMessage.getReadOnlyProperty();
+    }
+
+    public ReadOnlyStringProperty getAddedLabelMessage() {
+        return addedLabelMessage.getReadOnlyProperty();
     }
 }

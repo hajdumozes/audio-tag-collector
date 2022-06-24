@@ -32,6 +32,9 @@ public class AudioCollectorView implements FxmlView<AudioCollectorViewModel> {
     @FXML
     Label processedCounter;
 
+    @FXML
+    Label addedCounter;
+
     final AudioCollectorViewModel audioCollectorViewModel;
 
     final AudioFileReader audioFileReader;
@@ -42,6 +45,8 @@ public class AudioCollectorView implements FxmlView<AudioCollectorViewModel> {
         dragAndDropPane.setOnDragDropped(this::processFiles);
 
         processedCounter.textProperty().bind(audioCollectorViewModel.getProcessedLabelMessage());
+
+        addedCounter.textProperty().bind(audioCollectorViewModel.getAddedLabelMessage());
     }
 
     private void processFiles(DragEvent event) {

@@ -15,7 +15,10 @@
             </font>
         </Label>
     </HBox>
-    <Pane fx:id="dragAndDropPane" prefHeight="400.0" prefWidth="400.0">
-        <Label fx:id="processedCounter"/>
+    <Pane fx:id="dragAndDropPane" prefHeight="400.0" prefWidth="400.0" >
+        <VBox alignment="BASELINE_LEFT" prefHeight="50.0" prefWidth="200.0">
+            <Label fx:id="processedCounter"/>
+            <Label fx:id="addedCounter"/>
+        </VBox>
     </Pane>
 </VBox>
