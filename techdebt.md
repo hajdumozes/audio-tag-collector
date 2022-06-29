@@ -3,6 +3,7 @@
 - java fx tutorial: https://jenkov.com/tutorials/javafx/label.html
 
 ### Refactor
+- alternative way to load image from repo
 
 ### Tag processing
 - filter out previews

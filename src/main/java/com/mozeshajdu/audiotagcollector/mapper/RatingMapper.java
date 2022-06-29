@@ -22,11 +22,11 @@ public class RatingMapper {
     public static final String RATING_PART_PREFIX = "Rating";
     public static final String ALL_CHARACTERS_BUT_NUMBERS = "[^0-9]";
     public static final Map<String, String> RATING_PAIRS = Map.of(
-            "?", "50",
+            "118", "50",
             "128", "60",
             "186", "70",
             "196", "80",
-            "??", "90",
+            "242", "90",
             "255", "100");
 
     TagFormatter tagFormatter;
