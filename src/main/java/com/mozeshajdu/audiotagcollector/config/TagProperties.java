@@ -7,9 +7,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConfigurationProperties(prefix = "tag.delimiter")
+@ConfigurationProperties(prefix = "tag")
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class TagDelimiterProperties {
-    String genre;
+public class TagProperties {
+    String delimiter;
 }

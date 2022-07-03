@@ -1,6 +1,6 @@
 package com.mozeshajdu.audiotagcollector.service;
 
-import com.mozeshajdu.audiotagcollector.config.TagDelimiterProperties;
+import com.mozeshajdu.audiotagcollector.config.TagProperties;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -20,7 +20,7 @@ public class TagFormatter {
     public static final String UNICODE_SPACE_SEPARATOR_CHAR = "\u00A0";
     public static final String SPACE = " ";
 
-    TagDelimiterProperties tagDelimiterProperties;
+    TagProperties tagProperties;
 
     public String transformTextTags(TagField tagField) {
         String field = tagField.toString();
@@ -29,7 +29,7 @@ public class TagFormatter {
                     .replace(TEXT_TAG_PREFIX, Strings.EMPTY)
                     .replace(TEXT_TAG_SUFFIX, Strings.EMPTY)
                     .replace(TEXT_TAG_QUOTE, Strings.EMPTY)
-                    .replace(UNICODE_WHITE_SPACE_CHAR, tagDelimiterProperties.getGenre())
+                    .replace(UNICODE_WHITE_SPACE_CHAR, tagProperties.getDelimiter())
                     .replace(UNICODE_SPACE_SEPARATOR_CHAR, SPACE)
                     .trim();
         }

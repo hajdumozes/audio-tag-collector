@@ -20,5 +20,4 @@ spring:
       binder:
         brokers: ${KAFKA_SERVER:localhost:9092}
 tag:
-  delimiter:
-    genre: ${GENRE_DELIMITER:;}
+  delimiter: ${TAG_DELIMITER:;}
