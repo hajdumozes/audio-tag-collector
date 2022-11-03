@@ -1,6 +1,5 @@
 package com.mozeshajdu.audiotagcollector.config;
 
-import com.mozeshajdu.audiotagcollector.entity.AudioTag;
 import com.mozeshajdu.audiotagcollector.event.entity.AudioTagCreatedMessage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
