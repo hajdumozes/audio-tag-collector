@@ -13,17 +13,17 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
         </columnResizePolicy>
         <columns>
-            <TableColumn text="Title" fx:id="title" prefWidth="40">
+            <TableColumn text="Title" prefWidth="40">
                 <cellValueFactory>
                     <PropertyValueFactory property="title"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Album" fx:id="album" prefWidth="40">
+            <TableColumn text="Album" prefWidth="40">
                 <cellValueFactory>
                     <PropertyValueFactory property="album"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Status" fx:id="status" prefWidth="20">
+            <TableColumn text="Status" prefWidth="20">
                 <cellValueFactory>
                     <PropertyValueFactory property="processingStatus"/>
                 </cellValueFactory>

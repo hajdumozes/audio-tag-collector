@@ -1,11 +1,9 @@
 package com.mozeshajdu.audiotagcollector.view.log;
 
-import com.mozeshajdu.audiotagcollector.entity.ProcessingStatus;
 import com.mozeshajdu.audiotagcollector.entity.TagTableEntry;
 import de.saxsys.mvvmfx.FxmlView;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -20,15 +18,6 @@ import java.util.Optional;
 public class LogView implements FxmlView<LogViewModel> {
     @FXML
     TableView<TagTableEntry> tableView;
-
-    @FXML
-    TableColumn<TagTableEntry, String> title;
-
-    @FXML
-    TableColumn<TagTableEntry, String> album;
-
-    @FXML
-    TableColumn<TagTableEntry, ProcessingStatus> status;
 
     public void addToTable(TagTableEntry entry) {
         if (!tableView.getItems().contains(entry)) {
