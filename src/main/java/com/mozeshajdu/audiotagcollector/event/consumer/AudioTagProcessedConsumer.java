@@ -5,7 +5,7 @@ import com.mozeshajdu.audiotagcollector.entity.TagTableEntry;
 import com.mozeshajdu.audiotagcollector.event.entity.AudioTagProcessedMessage;
 import com.mozeshajdu.audiotagcollector.mapper.AudioTagMapper;
 import com.mozeshajdu.audiotagcollector.view.audiocollector.AudioCollectorViewModel;
-import com.mozeshajdu.audiotagcollector.view.log.LogView;
+import com.mozeshajdu.audiotagcollector.view.log.LogViewModel;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -24,19 +24,19 @@ import java.util.function.Consumer;
 public class AudioTagProcessedConsumer implements Consumer<AudioTagProcessedMessage> {
     AudioTagMapper audioTagMapper;
     AudioCollectorViewModel audioCollectorViewModel;
-    LogView logView;
+    LogViewModel logViewModel;
 
     @Override
     public void accept(AudioTagProcessedMessage audioTagProcessedMessage) {
         log.info("Received audioTagProcessedMessage: {}", audioTagProcessedMessage.toString());
         audioCollectorViewModel.increaseProcessed();
         TagTableEntry entry = audioTagMapper.ofProcessedMessage(audioTagProcessedMessage);
-        Optional<Integer> entryIndex = logView.findIndex(entry);
+        Optional<Integer> entryIndex = logViewModel.findIndex(entry);
         entryIndex.ifPresent(index -> setEntry(entry, index));
     }
 
     private void setEntry(TagTableEntry entry, Integer index) {
         entry.setProcessingStatus(ProcessingStatus.PROCESSED);
-        logView.setEntry(index, entry);
+        logViewModel.setEntry(index, entry);
     }
 }

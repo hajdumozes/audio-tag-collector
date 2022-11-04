@@ -5,7 +5,7 @@ import com.mozeshajdu.audiotagcollector.entity.TagTableEntry;
 import com.mozeshajdu.audiotagcollector.event.entity.AudioTagAddedMessage;
 import com.mozeshajdu.audiotagcollector.mapper.AudioTagMapper;
 import com.mozeshajdu.audiotagcollector.view.audiocollector.AudioCollectorViewModel;
-import com.mozeshajdu.audiotagcollector.view.log.LogView;
+import com.mozeshajdu.audiotagcollector.view.log.LogViewModel;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -24,7 +24,7 @@ import java.util.function.Consumer;
 public class AudioTagAddedConsumer implements Consumer<AudioTagAddedMessage> {
     AudioTagMapper audioTagMapper;
     AudioCollectorViewModel audioCollectorViewModel;
-    LogView logView;
+    LogViewModel logView;
 
     @Override
     public void accept(AudioTagAddedMessage audioTagAddedMessage) {

@@ -4,7 +4,7 @@ import com.mozeshajdu.audiotagcollector.entity.AudioTag;
 import com.mozeshajdu.audiotagcollector.event.producer.AudioTagProducer;
 import com.mozeshajdu.audiotagcollector.exception.AudioReadException;
 import com.mozeshajdu.audiotagcollector.mapper.AudioTagMapper;
-import com.mozeshajdu.audiotagcollector.view.log.LogView;
+import com.mozeshajdu.audiotagcollector.view.log.LogViewModel;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -22,7 +22,7 @@ public class AudioFileReader {
     AudioTagMapper audioTagMapper;
     AudioTagExtractor audioTagExtractor;
     AudioTagProducer audioTagProducer;
-    LogView logView;
+    LogViewModel logView;
 
     public void read(File file) {
         AudioFile audioFile = readAudioFile(file);
