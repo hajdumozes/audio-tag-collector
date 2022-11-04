@@ -19,7 +19,6 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -53,7 +52,7 @@ public class AudioCollectorView implements FxmlView<AudioCollectorViewModel> {
         Dragboard dragboard = event.getDragboard();
         if (dragboard.hasFiles()) {
             audioCollectorViewModel.resetProcessed();
-            List<File> audioFiles = dragboard.getFiles().stream().filter(this::isAudioFile).collect(Collectors.toList());
+            List<File> audioFiles = dragboard.getFiles().stream().filter(this::isAudioFile).toList();
             audioCollectorViewModel.setGoal(audioFiles.size());
             audioFiles.forEach(audioFileReader::read);
         }
@@ -61,7 +60,7 @@ public class AudioCollectorView implements FxmlView<AudioCollectorViewModel> {
 
     private List<String> getAllAudioExtensionPattern() {
         AudioExtension[] values = AudioExtension.values();
-        return Arrays.stream(values).map(AudioExtension::getExtension).collect(Collectors.toList());
+        return Arrays.stream(values).map(AudioExtension::getExtension).toList();
     }
 
     private boolean isAudioFile(File file) {
