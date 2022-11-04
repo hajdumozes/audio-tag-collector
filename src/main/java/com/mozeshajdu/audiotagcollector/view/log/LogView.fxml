@@ -3,32 +3,31 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<AnchorPane xmlns="http://javafx.com/javafx"
+<HBox xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.mozeshajdu.audiotagcollector.view.log.LogView"
             prefHeight="400.0" prefWidth="600.0">
     <TableView fx:id="tableView" HBox.hgrow="ALWAYS" maxWidth="Infinity">
         <columnResizePolicy>
-            <TableView fx:constant="UNCONSTRAINED_RESIZE_POLICY"/>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
         </columnResizePolicy>
         <columns>
-            <TableColumn text="Title" fx:id="title">
+            <TableColumn text="Title" fx:id="title" prefWidth="40">
                 <cellValueFactory>
                     <PropertyValueFactory property="title"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Album" fx:id="album">
+            <TableColumn text="Album" fx:id="album" prefWidth="40">
                 <cellValueFactory>
                     <PropertyValueFactory property="album"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Status" fx:id="status">
+            <TableColumn text="Status" fx:id="status" prefWidth="20">
                 <cellValueFactory>
                     <PropertyValueFactory property="processingStatus"/>
                 </cellValueFactory>
             </TableColumn>
         </columns>
     </TableView>
-</AnchorPane>
+</HBox>
