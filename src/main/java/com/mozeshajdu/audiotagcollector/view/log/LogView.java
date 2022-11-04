@@ -1,5 +1,7 @@
 package com.mozeshajdu.audiotagcollector.view.log;
 
+import com.mozeshajdu.audiotagcollector.entity.AudioTag;
+import com.mozeshajdu.audiotagcollector.entity.ProcessingStatus;
 import de.saxsys.mvvmfx.FxmlView;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -14,8 +16,18 @@ import org.springframework.stereotype.Component;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class LogView implements FxmlView<LogViewModel> {
     @FXML
-    TableView<String> tableView;
+    TableView<AudioTag> tableView;
 
     @FXML
-    TableColumn<String, String> fileName;
+    TableColumn<AudioTag, String> title;
+
+    @FXML
+    TableColumn<AudioTag, String> album;
+
+    @FXML
+    TableColumn<AudioTag, ProcessingStatus> status;
+
+    public void addToTable(AudioTag audioTag) {
+        tableView.getItems().add(audioTag);
+    }
 }

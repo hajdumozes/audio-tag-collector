@@ -3,6 +3,7 @@ package com.mozeshajdu.audiotagcollector.service;
 import com.mozeshajdu.audiotagcollector.entity.AudioTag;
 import com.mozeshajdu.audiotagcollector.event.producer.AudioTagProducer;
 import com.mozeshajdu.audiotagcollector.exception.AudioReadException;
+import com.mozeshajdu.audiotagcollector.view.log.LogView;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -19,12 +20,14 @@ import java.io.File;
 public class AudioFileReader {
     AudioTagExtractor audioTagExtractor;
     AudioTagProducer audioTagProducer;
+    LogView logView;
 
     public void read(File file) {
         AudioFile audioFile = readAudioFile(file);
         Tag tag = audioFile.getTag();
         AudioTag audioTag = audioTagExtractor.extract(tag);
         audioTagProducer.produce(audioTag);
+        logView.addToTable(audioTag);
     }
 
 

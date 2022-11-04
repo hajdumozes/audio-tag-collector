@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
@@ -24,5 +25,8 @@ public class AudioTag {
     List<String> genres;
     String grouping;
     Integer rating;
+    @Builder.Default
+    @EqualsAndHashCode.Exclude
+    ProcessingStatus processingStatus = ProcessingStatus.PENDING;
 }
 
