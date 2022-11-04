@@ -1,4 +1,4 @@
-package com.mozeshajdu.audiotagcollector.view.audiocollector;
+package com.mozeshajdu.audiotagcollector.view;
 
 import de.saxsys.mvvmfx.ViewModel;
 import lombok.AccessLevel;

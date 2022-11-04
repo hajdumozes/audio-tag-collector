@@ -1,6 +1,6 @@
 package com.mozeshajdu.audiotagcollector;
 
-import com.mozeshajdu.audiotagcollector.view.audiocollector.MainView;
+import com.mozeshajdu.audiotagcollector.view.MainView;
 import de.saxsys.mvvmfx.FluentViewLoader;
 import de.saxsys.mvvmfx.spring.MvvmfxSpringApplication;
 import javafx.application.Application;
