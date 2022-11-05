@@ -22,14 +22,15 @@ public class AudioFileReader {
     AudioTagMapper audioTagMapper;
     AudioTagExtractor audioTagExtractor;
     AudioTagProducer audioTagProducer;
-    LogViewModel logView;
+    LogViewModel logViewModel;
 
     public void read(File file) {
         AudioFile audioFile = readAudioFile(file);
         Tag tag = audioFile.getTag();
         AudioTag audioTag = audioTagExtractor.extract(tag);
+        audioTag.setFileName(file.getName());
         audioTagProducer.produce(audioTag);
-        logView.addToTable(audioTagMapper.ofTag(audioTag));
+        logViewModel.addToTable(audioTagMapper.ofTag(audioTag));
     }
 
 

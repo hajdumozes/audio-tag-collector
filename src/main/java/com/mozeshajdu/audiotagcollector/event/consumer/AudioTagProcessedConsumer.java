@@ -32,11 +32,6 @@ public class AudioTagProcessedConsumer implements Consumer<AudioTagProcessedMess
         audioCollectorViewModel.increaseProcessed();
         TagTableEntry entry = audioTagMapper.ofProcessedMessage(audioTagProcessedMessage);
         Optional<Integer> entryIndex = logViewModel.findIndex(entry);
-        entryIndex.ifPresent(index -> setEntry(entry, index));
-    }
-
-    private void setEntry(TagTableEntry entry, Integer index) {
-        entry.setProcessingStatus(ProcessingStatus.PROCESSED);
-        logViewModel.setEntry(index, entry);
+        entryIndex.ifPresent(index -> logViewModel.setEntryStatus(index, ProcessingStatus.PROCESSED));
     }
 }

@@ -1,5 +1,6 @@
 package com.mozeshajdu.audiotagcollector.view.log;
 
+import com.mozeshajdu.audiotagcollector.entity.ProcessingStatus;
 import com.mozeshajdu.audiotagcollector.entity.TagTableEntry;
 import de.saxsys.mvvmfx.ViewModel;
 import javafx.collections.FXCollections;
@@ -33,7 +34,8 @@ public class LogViewModel implements ViewModel {
         return Optional.empty();
     }
 
-    public void setEntry(int index, TagTableEntry entry) {
-        entries.set(index, entry);
+    public void setEntryStatus(int index, ProcessingStatus status) {
+        TagTableEntry tagTableEntry = entries.get(index);
+        tagTableEntry.setProcessingStatus(status);
     }
 }

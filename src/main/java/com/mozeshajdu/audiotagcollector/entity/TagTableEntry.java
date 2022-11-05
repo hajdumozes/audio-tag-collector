@@ -19,4 +19,6 @@ public class TagTableEntry {
     @Builder.Default
     @EqualsAndHashCode.Exclude
     ProcessingStatus processingStatus = ProcessingStatus.PENDING;
+    @EqualsAndHashCode.Exclude
+    String fileName;
 }

@@ -12,6 +12,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring", uses = {TagFieldMapper.class, RatingMapper.class})
 public interface AudioTagMapper {
 
+    @Mapping(target = "fileName", ignore = true)
     @Mapping(target = "processingStatus", ignore = true)
     @Mapping(target = "title", qualifiedByName = "single")
     @Mapping(target = "artists", qualifiedByName = "multiple")
@@ -26,17 +27,21 @@ public interface AudioTagMapper {
 
     AudioTagCreatedMessage of(AudioTag source);
 
+    @Mapping(target = "fileName", ignore = true)
     @Mapping(target = "processingStatus", ignore = true)
     AudioTag of(AudioTagProcessedMessage source);
 
+    @Mapping(target = "fileName", ignore = true)
     @Mapping(target = "processingStatus", ignore = true)
     AudioTag of(AudioTagAddedMessage source);
 
     TagTableEntry ofTag(AudioTag source);
 
+    @Mapping(target = "fileName", ignore = true)
     @Mapping(target = "processingStatus", ignore = true)
     TagTableEntry ofProcessedMessage(AudioTagProcessedMessage source);
 
+    @Mapping(target = "fileName", ignore = true)
     @Mapping(target = "processingStatus", ignore = true)
     TagTableEntry ofAddedMessage(AudioTagAddedMessage source);
 }

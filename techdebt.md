@@ -5,7 +5,6 @@
     - Accordion
   - A panel, which lists the results as a log(title, success, etc.)
     - ListView
-    - TableView
     - TreeTableView
     - Scroll Pane
     - PieChart
