@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -17,6 +18,7 @@
     </HBox>
     <Pane fx:id="dragAndDropPane" prefHeight="400.0" prefWidth="400.0">
         <VBox alignment="BASELINE_LEFT" prefHeight="50.0" prefWidth="200.0">
+            <ProgressBar fx:id="progressBar"/>
             <Label fx:id="processedCounter"/>
             <Label fx:id="addedCounter"/>
         </VBox>

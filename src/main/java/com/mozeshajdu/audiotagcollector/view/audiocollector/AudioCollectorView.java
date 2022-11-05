@@ -5,6 +5,7 @@ import com.mozeshajdu.audiotagcollector.service.AudioFileReader;
 import de.saxsys.mvvmfx.FxmlView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
@@ -34,6 +35,9 @@ public class AudioCollectorView implements FxmlView<AudioCollectorViewModel> {
     @FXML
     Label addedCounter;
 
+    @FXML
+    ProgressBar progressBar;
+
     final AudioCollectorViewModel audioCollectorViewModel;
 
     final AudioFileReader audioFileReader;
@@ -46,6 +50,8 @@ public class AudioCollectorView implements FxmlView<AudioCollectorViewModel> {
         processedCounter.textProperty().bind(audioCollectorViewModel.getProcessedLabelMessage());
 
         addedCounter.textProperty().bind(audioCollectorViewModel.getAddedLabelMessage());
+
+        progressBar.progressProperty().bind(audioCollectorViewModel.getProgress());
     }
 
     private void processFiles(DragEvent event) {
@@ -54,6 +60,7 @@ public class AudioCollectorView implements FxmlView<AudioCollectorViewModel> {
             audioCollectorViewModel.resetProcessed();
             List<File> audioFiles = dragboard.getFiles().stream().filter(this::isAudioFile).toList();
             audioCollectorViewModel.setGoal(audioFiles.size());
+            audioCollectorViewModel.setProgressBarUnit(1 / (double) audioFiles.size());
             audioFiles.forEach(audioFileReader::read);
         }
     }

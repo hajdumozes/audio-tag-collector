@@ -30,6 +30,7 @@ public class AudioTagProcessedConsumer implements Consumer<AudioTagProcessedMess
     public void accept(AudioTagProcessedMessage audioTagProcessedMessage) {
         log.info("Received audioTagProcessedMessage: {}", audioTagProcessedMessage.toString());
         audioCollectorViewModel.increaseProcessed();
+        audioCollectorViewModel.moveProgressBar();
         TagTableEntry entry = audioTagMapper.ofProcessedMessage(audioTagProcessedMessage);
         Optional<Integer> entryIndex = logViewModel.findIndex(entry);
         entryIndex.ifPresent(index -> logViewModel.setEntryStatus(index, ProcessingStatus.PROCESSED));

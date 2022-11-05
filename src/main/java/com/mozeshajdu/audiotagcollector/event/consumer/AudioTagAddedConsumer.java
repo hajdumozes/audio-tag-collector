@@ -30,6 +30,7 @@ public class AudioTagAddedConsumer implements Consumer<AudioTagAddedMessage> {
     public void accept(AudioTagAddedMessage audioTagAddedMessage) {
         log.info("Received audioTagAddedMessage: {}", audioTagAddedMessage.toString());
         audioCollectorViewModel.increaseAdded();
+        audioCollectorViewModel.moveProgressBar();
         TagTableEntry entry = audioTagMapper.ofAddedMessage(audioTagAddedMessage);
         Optional<Integer> entryIndex = logView.findIndex(entry);
         entryIndex.ifPresent(index -> logView.setEntryStatus(index, ProcessingStatus.ADDED));
