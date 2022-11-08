@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.mozeshajdu.audiotagcollector.view.MainView"
-            prefHeight="400.0" prefWidth="600.0">
-    <HBox>
-        <Button fx:id="dragAndDropButton" text="Drop files" onAction="#dragAndDropButtonClicked"/>
-        <Button fx:id="logButton" text="View logs" onAction="#logButtonClicked"/>
-    </HBox>
-</AnchorPane>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<TabPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="com.mozeshajdu.audiotagcollector.view.MainView">
+    <Tab closable="false" text="Upload files">
+        <fx:include fx:id="audioCollectorView" source="audiocollector/AudioCollectorView.fxml"/>
+    </Tab>
+    <Tab closable="false" text="View logs">
+        <fx:include fx:id="logView" source="log/LogView.fxml"/>
+    </Tab>
+</TabPane>
