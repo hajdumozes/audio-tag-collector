@@ -1,38 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.HBox?>
-<HBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.mozeshajdu.audiotagcollector.view.log.LogView"
-      prefHeight="400.0" prefWidth="600.0">
-    <TableView fx:id="tableView" HBox.hgrow="ALWAYS" maxWidth="Infinity">
-        <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
-        </columnResizePolicy>
+
+<HBox xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mozeshajdu.audiotagcollector.view.log.LogView">
+    <TableView fx:id="tableView" HBox.hgrow="ALWAYS">
         <columns>
-            <TableColumn text="File" prefWidth="50">
+            <TableColumn prefWidth="300.0" text="File">
                 <cellValueFactory>
-                    <PropertyValueFactory property="fileName"/>
+                    <PropertyValueFactory property="fileName" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Title" prefWidth="20">
+            <TableColumn prefWidth="150.0" text="Title">
                 <cellValueFactory>
-                    <PropertyValueFactory property="title"/>
+                    <PropertyValueFactory property="title" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Album" prefWidth="20">
+            <TableColumn prefWidth="100.0" text="Album">
                 <cellValueFactory>
-                    <PropertyValueFactory property="album"/>
+                    <PropertyValueFactory property="album" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Status" prefWidth="10">
+            <TableColumn prefWidth="75.0" text="Status">
                 <cellValueFactory>
-                    <PropertyValueFactory property="processingStatus"/>
+                    <PropertyValueFactory property="processingStatus" />
                 </cellValueFactory>
             </TableColumn>
         </columns>
+      <columnResizePolicy>
+         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+      </columnResizePolicy>
     </TableView>
 </HBox>
