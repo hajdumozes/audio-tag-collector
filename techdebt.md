@@ -1,17 +1,5 @@
 ### UI extension
-- alternate source ui (https://www.tutorialspoint.com/how-to-create-a-dialog-in-javafx)
-  - Drag and drop
-    - ProgressBar
-    - Accordion
-  - A panel, which lists the results as a log(title, success, etc.)
-    - ListView
-    - TreeTableView
-    - Scroll Pane
-    - PieChart
-  - A button to open the AWS panel as a dialog
-  - Main View
-    - TitledPane
-    - MenuBar
+  - AWS panel
 
 ### Refactor
 - alternative way to load image from repo (Azure, Aws)
