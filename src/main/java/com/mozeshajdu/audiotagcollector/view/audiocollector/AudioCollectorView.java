@@ -57,6 +57,7 @@ public class AudioCollectorView implements FxmlView<AudioCollectorViewModel> {
     private void processFiles(DragEvent event) {
         Dragboard dragboard = event.getDragboard();
         if (dragboard.hasFiles()) {
+            progressBar.setVisible(true);
             audioCollectorViewModel.resetProcessed();
             List<File> audioFiles = dragboard.getFiles().stream().filter(this::isAudioFile).toList();
             audioCollectorViewModel.setGoal(audioFiles.size());

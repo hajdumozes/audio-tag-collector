@@ -3,24 +3,20 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<VBox fx:controller="com.mozeshajdu.audiotagcollector.view.audiocollector.AudioCollectorView"
-      xmlns="http://javafx.com/javafx/8.0.60"
-      xmlns:fx="http://javafx.com/fxml/1">
+
+<VBox prefHeight="265.0" prefWidth="314.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mozeshajdu.audiotagcollector.view.audiocollector.AudioCollectorView">
     <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white;">
-        <Label text="Drag audio files here" textAlignment="CENTER" wrapText="true">
+        <Label prefHeight="78.0" prefWidth="123.0" text="Drag audio files here" textAlignment="CENTER" wrapText="true">
             <font>
-                <Font name="System Bold" size="12.0"/>
+                <Font name="System Bold" size="12.0" />
             </font>
         </Label>
     </HBox>
-    <Pane fx:id="dragAndDropPane" prefHeight="400.0" prefWidth="400.0">
-        <VBox alignment="BASELINE_LEFT" prefHeight="50.0" prefWidth="200.0">
-            <ProgressBar fx:id="progressBar"/>
-            <Label fx:id="processedCounter"/>
-            <Label fx:id="addedCounter"/>
-        </VBox>
-    </Pane>
+     <VBox fx:id="dragAndDropPane" alignment="CENTER" prefHeight="213.0" prefWidth="286.0" spacing="10.0">
+         <Label fx:id="processedCounter" />
+         <Label fx:id="addedCounter" />
+         <ProgressBar fx:id="progressBar" prefHeight="19.0" prefWidth="96.0" visible="false" />
+     </VBox>
 </VBox>
